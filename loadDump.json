@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dump": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "port": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dump",
+          "user",
+          "password",
+          "database",
+          "host",
+          "port"
+        ]
+      }
+    }
+  },
+  "required": [
+    "services"
+  ]
+}
