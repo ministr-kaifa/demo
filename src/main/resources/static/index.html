@@ -6,13 +6,31 @@
     <title>Список постов</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Roboto, monospace;
+            color: rgba(0, 0, 0, 0.6);
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .header-container {
+            padding: 10px 20px;
+            background-color:#FB3C1A;
+        }
+        .header {
+            color: rgba(0, 0, 0, 0.7)
+        }
+        .posts {
             margin: 20px;
         }
         .post {
+            background-color: rgba(224, 217, 217, 0.2);
             border: 1px solid #ccc;
+            border-radius: 10px;
             padding: 10px;
             margin-bottom: 10px;
+        }
+        .post:hover {
+            background-color:#fb3c1a3b;
         }
         .post h3 {
             margin: 0;
@@ -20,8 +38,27 @@
     </style>
 </head>
 <body>
-    <h1>Список постов</h1>
-    <div id="posts"></div>
+    <div class="header-container">
+        <h1 class="header">Список постов</h1>
+    </div>
+    <div id="posts" class="posts">
+        <div class="post">
+            <h3>Author</h3>
+            <p>Content posts of ok not</p>
+        </div>
+        <div class="post">
+            <h3>Author</h3>
+            <p>Content posts of ok not</p>
+        </div>
+        <div class="post">
+            <h3>Author</h3>
+            <p>Content posts of ok not</p>
+        </div>
+        <div class="post">
+            <h3>Author</h3>
+            <p>Content posts of ok not</p>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
