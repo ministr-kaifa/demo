@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список постов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .post h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список постов</h1>
+    <div id="posts"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/posts')
+                .then(response => response.json())
+                .then(posts => {
+                    const postsContainer = document.getElementById('posts');
+                    posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.className = 'post';
+                        postElement.innerHTML = `
+                            <h3>Автор: ${post.author}</h3>
+                            <p>${post.content}</p>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Ошибка при загрузке постов:', error);
+                });
+        });
+    </script>
+</body>
+</html>

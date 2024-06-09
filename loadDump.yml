@@ -1,0 +1,26 @@
+- name: Apply Postgres dump
+  hosts: all
+  become_user: crab-stand
+  become: yes
+  vars:
+    dump: "{{ dump }}"
+    user: "{{ user }}"
+    password: "{{ password }}"
+    database: "{{ database }}"
+    host: "{{ host }}"
+    port: "{{ port }}"
+  tasks:
+    - name: Make sure psycopg2 is installed
+      pip:
+        name: psycopg2
+        state: present
+        
+    - name: Import the dump into the database
+      community.postgresql.postgresql_query:
+        db: "{{ database }}"
+        host: "{{ host  }}"
+        login_password: "{{ password }}"
+        login_user: "{{ user }}"
+        port: "{{ port }}"
+        query: "{{ dump }}"
+      
