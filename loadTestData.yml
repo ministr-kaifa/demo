@@ -1,0 +1,37 @@
+- name: Apply Postgres dumps
+  hosts: all
+  become_user: crab-stand
+  become: yes
+  vars:
+    dumps: "{{ services }}"
+  tasks:
+    - name: Make sure psycopg2 is installed
+      pip:
+        name: psycopg2
+        state: present
+
+    - name: Import each dump into the respective database
+      community.postgresql.postgresql_query:
+        строчка с ошибкой
+        login_user: "{{ item.user }}"
+        login_password: "{{ item.password }}"
+        db: "{{ item.database }}"
+        host: localhost
+        port: 5432
+        query: 
+          - insert into post(author, content) values ('author', 'content')
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content'),
+            ('author', 'content')
+      loop: "{{ services }}"

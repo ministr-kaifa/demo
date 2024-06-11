@@ -6,7 +6,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "dump": {
+          "database": {
             "type": "string"
           },
           "user": {
@@ -14,24 +14,12 @@
           },
           "password": {
             "type": "string"
-          },
-          "database": {
-            "type": "string"
-          },
-          "host": {
-            "type": "string"
-          },
-          "port": {
-            "type": "string"
           }
         },
         "required": [
-          "dump",
-          "user",
-          "password",
           "database",
-          "host",
-          "port"
+          "user",
+          "password"
         ]
       }
     }
